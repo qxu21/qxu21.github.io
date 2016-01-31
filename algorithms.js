@@ -28,7 +28,7 @@ function FactorPairs(num) {
         }
         return (list);
     }
-    
+*/    
     function ListToString(list) {
         var st = "Result: ";
         for (var x = 0; x >= list.length; ++x) { for (var y = 0; y <= 1; ++y) {
@@ -36,8 +36,8 @@ function FactorPairs(num) {
         }}
         return (st.slice(0, -2));
     }
-*/
-function factor() {
+
+function Factor() {
     var sum = document.getElementById("sum").value;
     var product = document.getElementById("product").value;
     var longlist = FactorPairs(product);
@@ -50,4 +50,14 @@ function factor() {
             document.getElementById("result").innerHTML = longlist[x].toString(); break;
         }
     }
+}
+
+function BareFactor() {
+	var number = document.getElementById("factor").value;
+	var factorlist = FactorPairs(number);
+	var str = factorlist.toString();
+	if (number < 0) {
+		str.concat("And all negative versions");
+	}
+	document.getElementById("facresult").value = str;
 }
