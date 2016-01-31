@@ -59,5 +59,5 @@ function BareFactor() {
 	if (number < 0) {
 		str.concat("And all negative versions");
 	}
-	document.getElementById("facresult").value = str;
+	document.getElementById("facresult").innerHTML = str;
 }
