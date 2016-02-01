@@ -5,14 +5,19 @@
 </head>
 <body>
     <p> Diamond Problem Solver! The top of the diamond goes in the first box, while the bottom goes in the second. </p>
-    <input type="text" name="product" id="product" size=3> Product/Top <br>
-    <input type="text" name="sum" id="sum" size=3 onkeyup="if (event.keyCode == 13) Factor()"> Sum/Bottom &nbsp &nbsp &nbsp
+    <input type="number" name="product" id="product" size=3 onkeyup="Factor()"> Product/Top <br>
+    <input type="number" name="sum" id="sum" size=3 onkeyup="Factor()"> Sum/Bottom &nbsp &nbsp &nbsp
     <button type="button" onclick="Factor()"> Find </button>
     <p id = "result"> </p>
     
-    <p> Number Factorer!</p>
-    <input type="text" name="factor" id="factor" onkeyup="BareFactor()">
-    <p id="facresult"> </p>
+    <p> Number Factorer! Type a number to see all its factors!</p>
+    <input type="number" name="factor" id="factor" onkeyup="BareFactor()">
+    <table border="1" id="facresult"> 
+		<tr id="facresult1"></tr>
+		<tr id="facresult2"></tr>
+    </table>
+    
+    
     <p>Find a glitch/error/problem? Open an issue on <a href="https://github.com/seabassfish/seabassfish.github.io/issues/new">GitHub</a>
     <br>
     describing what numbers you put in and what happened. <br><br>

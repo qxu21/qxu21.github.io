@@ -19,45 +19,50 @@ function FactorPairs(num) {
         }
     }
     return (list);
-}
-/*
-    function SumPairs(num) {
-        var list = [];
-        for (var x = 1, y = num; x <= y; ++x, ++y) {
-            list.push(new Array(x, y));
-        }
-        return (list);
-    }
-*/    
-    function ListToString(list) {
-        var st = "Result: ";
-        for (var x = 0; x >= list.length; ++x) { for (var y = 0; y <= 1; ++y) {
-            st = string.concat(st, x[y].toString(), ", ");
-        }}
-        return (st.slice(0, -2));
-    }
+}    
 
 function Factor() {
     var sum = document.getElementById("sum").value;
     var product = document.getElementById("product").value;
+    if (sum == null || product == null) {
+		document.getElementById("result").innerHTML = "Waiting for input...";
+		return null;
+	}
     var longlist = FactorPairs(product);
+    var isPrime = true;
     for (var x = 0; x < longlist.length; ++x) {
         if (sum < 0 && product > 0) {
             longlist[x][0] *= -1;
             longlist[x][1] *= -1;
         }
         if (longlist[x][0] + longlist[x][1] == sum) {
-            document.getElementById("result").innerHTML = longlist[x].toString(); break;
+			isPrime = false;
+            document.getElementById("result").innerHTML = longlist[x][0].toString().concat(", ", longlist[x][1].toString()); break;
         }
     }
+    if (isPrime) {
+		document.getElementById("result").innerHTML = "Prime";
+	}
 }
 
 function BareFactor() {
 	var number = document.getElementById("factor").value;
-	var factorlist = FactorPairs(number);
-	var str = factorlist.toString();
-	if (number < 0) {
-		str.concat("And all negative versions");
+	if (typeof number){} //add typeof stuff)
+	var tr1 = document.getElementById("facresult1");
+	var tr2 = document.getElementById("facresult2");
+	while (tr1.firstChild) {
+    tr1.removeChild(tr1.firstChild);
 	}
-	document.getElementById("facresult").innerHTML = str;
+	while (tr2.firstChild) {
+    tr2.removeChild(tr2.firstChild);
+	}
+	var factorlist = FactorPairs(number);
+	for (var x = 0; x < factorlist.length; ++x) {
+		var data1 = document.createElement("td");
+		var data2 = document.createElement("td");
+		var value1 = document.createTextNode(factorlist[x][0].toString());
+		var value2 = document.createTextNode(factorlist[x][1].toString());
+		data1.appendChild(value1); data2.appendChild(value2);
+		tr1.appendChild(data1); tr2.appendChild(data2);
+	}
 }
