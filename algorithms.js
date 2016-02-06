@@ -5,6 +5,11 @@ function FactorPairs(num) {
             if (num % y == 0) {
                 list.push(new Array(num / y, y));
             }
+            /*
+            if (list.indexOf(new Array(y, num / y)) > 0) {
+				console.log("Bursting"); break;
+			}
+			*/
         }
     } else {
         for (var y = Math.round(num / 2); y != 0; ++y) { 
@@ -64,5 +69,22 @@ function BareFactor() {
 		var value2 = document.createTextNode(factorlist[x][1].toString());
 		data1.appendChild(value1); data2.appendChild(value2);
 		tr1.appendChild(data1); tr2.appendChild(data2);
+	}
+}
+
+function GCF() {
+	var gcf1 = document.getElementById("gcf1").value;
+	var gcf2 = document.getElementById("gcf2").value;
+	if (gcf1 == "" || gcf2 == "") document.getElementById("gcfr").innerHTML = "";
+	var isPrime = true;
+	var x = null;
+	if (gcf1 < gcf2) x = gcf1;
+	else x = gcf2;
+	for(; x > 0; --x) {
+		if (gcf1 % x == 0 && gcf2 % x == 0) {
+			document.getElementById("gcfr").innerHTML = x;
+			isPrime = false;
+			break;
+		}
 	}
 }
