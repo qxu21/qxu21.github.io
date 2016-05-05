@@ -1,1 +1,7 @@
-
+.numberforms {
+	size: 3;
+	min: 1;
+	max: 999;
+	maxlength: 3;
+	width: 50px;
+}

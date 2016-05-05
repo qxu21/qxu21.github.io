@@ -88,3 +88,39 @@ function GCF() {
 		}
 	}
 }
+
+function Quad() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+	var c = document.getElementById("c").value;
+	if (a == "") { a = 1 }
+	if (b == "") { b = 1 }
+	if (c == "") { c = 1 }
+	var dc = (Math.pow(b, 2))-(4*a*c);
+	console.log(dc);
+	if (dc == 0) {
+		//one solution!
+		document.getElementById("quadroot").innerHTML = "x = " + (b*-1)/(2*a);
+	} else if (dc < 0) {
+		//complex solutions! TODO: Support this, use the radical simplifier
+		document.getElementById("quadroot").innerHTML = "no real solutions";
+	} else if (Math.sqrt(dc) % 1 == 0) {
+		//two rational roots!
+		document.getElementById("quadroot").innerHTML = "x = " + 
+		(((b*-1)+Math.sqrt(dc))/(2*a)).toString() + ", " +
+		(((b*-1)-Math.sqrt(dc))/(2*a)).toString();
+	} else {
+		//two irrational roots! &#x221a
+		var xequals = "x = ";
+		var ianswer = xequals.concat((b*-1).toString(), "+/- &#x221a", dc.toString(), "/", (2*a).toString());
+		document.getElementById("quadroot").innerHTML = ianswer;
+	}
+}
+
+
+function SimplifyRadical() {
+	var start = document.getElementById("longroot").value;
+	for (var x = 0; x^2 <= start; x++) {
+		if (x^2 % start == 0); //dostuff
+	}
+}
