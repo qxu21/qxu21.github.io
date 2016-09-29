@@ -1,3 +1,5 @@
+//man, forget this ;)
+function UselessGitTesting(i,s,o,g,r,a,m){}
 function FactorPairs(num) {
     var list = [];
     if (num > 0) {
